@@ -19,7 +19,7 @@ public class TestDbServlet extends javax.servlet.http.HttpServlet {
     // setup connection variables
     String user = "springstudent";
     String pass = "springstudent";
-    String jdbcUrl = "jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false";
+    String jdbcUrl = "jdbc:mysql://alucard.dynu.com:3306/web_customer_tracker?useSSL=false";
     String driver = "com.mysql.jdbc.Driver";
 
     // get a connection to the database
