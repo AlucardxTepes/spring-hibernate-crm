@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -41,11 +42,20 @@ public class CustomerController {
 
   @PostMapping("/saveCustomer")
   public String saveCustomer(@ModelAttribute("customer") Customer c) {
-
     // Save the customer using our service
     mCustomerService.saveCustomer(c);
-
     return "redirect:/customer/list";
   }
+
+  @GetMapping("showFormForUpdate")
+  public String updateCustomer(@RequestParam("customerId") int id, Model m){
+    // get customer from service
+    Customer c = mCustomerService.getCustomer(id);
+    // set customer as model attr to prepopulate the form
+    m.addAttribute("customer", c);
+
+    return "customer-form";
+  }
+
 
 }

@@ -23,6 +23,9 @@
         <h3>Save Customer</h3>
 
         <form:form action="saveCustomer" modelAttribute="customer" method="post">
+            <%--Associate data with customer ID--%>
+            <form:hidden path="id"/>
+
             <table>
                 <tbody>
                     <tr>
