@@ -49,4 +49,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     // return obj from database using primary key (id)
     return currentSession.get(Customer.class, id);
   }
+
+  @Override
+  @Transactional
+  public void deleteCustomer(int id) {
+    Session currentSession = mSessionFactory.getCurrentSession();
+    currentSession.delete(getCustomer(id));
+  }
 }
